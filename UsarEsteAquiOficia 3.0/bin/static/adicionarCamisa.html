@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Adicionar Camisa</title>
+	
+    
+	<script src="js/jquery.js"></script>
+	
+
+	<link href="css/bootstrap.min.css" rel=stylesheet>
+	
+	
+	<script>
+		$(document).ready(function(){
+			
+			$("#adicionar").click(function(){
+					
+				var codigoCamisa = $( "#codigoCamisa" ).val();
+				var tamanho  = $( "#tamanho" ).val();
+				var estampa = $( "#estampa" ).val();
+				var cor = $( "#cor" ).val();
+				
+				var url = `/camisa200/${codigoCamisa}/${tamanho}/${estampa}/${cor}`; //dica de oro.
+				
+				$.getJSON(url, function(data) {
+					
+					alert(url);
+					
+				});
+				
+				
+				
+			});
+
+		});
+
+	</script>
+	
+	<style>
+		 //css: . = classe # = id 
+		.content {
+			display:flex;
+			justify-content:flex-start;
+			align-items:centro; 
+			margin:50px 0 0 50px;
+			width:100%
+		}
+		#painelAdicionar {
+			width:50%;
+		}
+		.submit {
+			width:100%;
+			margin-top:32px;
+		}
+		
+		.submit button {
+			margin: 0 auto;
+		}
+		
+		label {
+			margin-top:10px;
+		}
+	</style>
+
+   
+  </head>
+
+
+  <body>
+		
+
+  		<div id="painelAdicionar">
+         
+         <label>Preencha os campos e adicione uma camisa ao sistema</label>
+		
+		<div id="painelAdicionar">
+	        <label>Codigo</label><input id="codigoCamisa" class="form-control col-left-offset-5" type="text" placeholder="Digite a codigo">
+	        <label>Tamanho</label><input id="tamanho" class="form-control col-left-offset-5" type="text" placeholder="Digite o tamanho">
+			<label>Estampa</label><input id="estampa" class="form-control col-left-offset-5" type="text" placeholder="Digite a estampa">
+			<label>Cor</label><input id="cor" class="form-control col-left-offset-5" type="text" placeholder="Digite cor">
+			<div class="submit">
+				<button id="adicionar" class="btn btn-success">Adicionar</button>
+			</div>
+		</div>		
+  </body>  
+</html>

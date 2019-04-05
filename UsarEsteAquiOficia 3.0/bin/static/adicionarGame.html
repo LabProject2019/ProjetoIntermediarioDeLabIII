@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Adicionar Game</title>
+	
+    
+	<script src="js/jquery.js"></script>
+	
+
+	<link href="css/bootstrap.min.css" rel=stylesheet>
+	
+	
+	<script>
+		$(document).ready(function(){
+			
+			$("#adicionar").click(function(){
+					
+				var codigoGame = $( "#codigoGame" ).val();
+				var genero  = $( "#genero" ).val();
+				var nome = $( "#nome" ).val();
+				var plataforma = $( "#plataforma" ).val();
+				
+				var url = `/game3/${codigoGame}/${genero}/${nome}/${plataforma}`; //dica de oro.
+				
+				$.getJSON(url, function(data) {
+					
+					alert(url);
+					
+				});
+				
+				
+				
+			});
+
+		});
+
+	</script>
+	
+	<style>
+		 //css: . = classe # = id 
+		.content {
+			display:flex;
+			justify-content:flex-start;
+			align-items:centro; 
+			margin:50px 0 0 50px;
+			width:100%
+		}
+		#painelAdicionar {
+			width:50%;
+		}
+		.submit {
+			width:100%;
+			margin-top:32px;
+		}
+		
+		.submit button {
+			margin: 0 auto;
+		}
+		
+		label {
+			margin-top:10px;
+		}
+	</style>
+
+   
+  </head>
+
+
+  <body>
+		<div class="content">
+		
+			<label>Preencha os campos e adicione um game ao sistema</label>
+	  		<div id="painelAdicionar">
+		        <label>Codigo</label><input id="codigoGame" class="form-control " type="text" placeholder="Digite o codigo">
+		        <label>Genero</label><input id="genero" class="form-control" type="text" placeholder="Digite o genero">
+				<label>Nome</label><input id="nome" class="form-control" type="text" placeholder="Digite o nome">
+				<label>Plataforma</label><input id="plataforma" class="form-control" type="text" placeholder="Digite a plataforma">
+				<div class="submit">
+					<button id="adicionar" class="btn btn-success">Adicionar</button>
+				</div>
+			</div>
+		</div>		
+  </body>
+</html>
